@@ -1,3 +1,6 @@
 [submodule "vendor/nice-things"]
 	path = vendor/nice-things
 	url = https://github.com/randolchance/nice-things.git
+[submodule "vendor/three-viewport"]
+	path = vendor/three-viewport
+	url = https://github.com/randolchance/three-viewport.git
