@@ -58,17 +58,17 @@ class App {
       overlay,
     }
 
-    this._scenes = {
+    const scenes = {
       primary: primary.scenemaster.masterscene,
       html: html.scenemaster.masterscene,
       overlay: overlay.scenemaster.masterscene,
     }
-
-    this.controller = new GameController( viewport );
+    this._scenes = scenes;
 
     this._orientation = 0;
     this._alpha = 0;
 
+    let has_orientation_controls = false;
     if (window.DeviceOrientationEvent) {
 
       this._onOrientationChange = App.onOrientationChange.bind(this);
@@ -77,7 +77,11 @@ class App {
       this._onRotationChange = App.onRotationChange.bind(this);
       window.addEventListener( 'deviceorientation', this._onRotationChange, { passive: true } );
 
+      has_orientation_controls = true;
+
     }
+
+    this.controller = new GameController( viewport, scenes, has_orientation_controls );
 
   }
 

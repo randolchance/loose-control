@@ -21,7 +21,7 @@ class GameController {
   }
 
 
-  constructor( viewport, scenes, playerController ) {
+  constructor( viewport, scenes={}, has_orientation_controls=false ) {
     if (GameController.instance) return GameController.instance;
 
     this._update = GameController.update.bind(this);
@@ -31,6 +31,8 @@ class GameController {
 
     this.scenes = scenes;
 
+    //  Use has_orientation_controls to help determine precise type of player controls available.
+    //    Should also check for touchscreen availability even if PC?
     this.playerController = playerController;
 
     GameController._instance = this;
