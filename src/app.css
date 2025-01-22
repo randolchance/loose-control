@@ -1,0 +1,26 @@
+#app {
+  --screen-width:           100vw;
+  --screen-height:          100vh;
+
+  --minimum-canvas-size:    hypot(
+    calc( var(--screen-width) * 1px ),
+    calc( var(--screen-height) * 1px ),
+  );
+
+  --canvas-padding:         1.125;
+
+  --canvas-size:            calc( var(--canvas-padding) * var(--minimum-canvas-size) );
+  --canvas-half-size:       calc( var(--canvas-size) / 2 );
+
+  width:                    var(--canvas-size);
+  height:                   var(--canvas-size);
+  top:                      50%;
+  left:                     50%;
+  margin:                   calc( -1 * var(--canvas-half-size) );
+
+
+  --orientation:            0;
+
+  transform:                rotate( var(--orientation) );
+
+}
