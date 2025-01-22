@@ -1,5 +1,6 @@
 import Viewport from "../vendor/three-viewport/src/viewport";
 import { is } from "../vendor/nice-things/utils";
+import GameController from "./game/GameController";
 
 
 const { PI, round } = Math;
