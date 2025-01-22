@@ -63,13 +63,15 @@ class App {
       overlay: overlay.scenemaster.masterscene,
     }
 
-    this._orientation = 0;
-    this._alpha = null;
+    this.controller = new GameController( viewport );
 
-    this._onOrientationChange = App.onOrientationChange.bind(this);
-    screen.orientation.addEventListener( 'change', this._onOrientationChange, { passive: true } );
+    this._orientation = 0;
+    this._alpha = 0;
 
     if (window.DeviceOrientationEvent) {
+
+      this._onOrientationChange = App.onOrientationChange.bind(this);
+      screen.orientation.addEventListener( 'change', this._onOrientationChange, { passive: true } );
 
       this._onRotationChange = App.onRotationChange.bind(this);
       window.addEventListener( 'deviceorientation', this._onRotationChange, { passive: true } );
