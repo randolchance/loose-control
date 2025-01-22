@@ -1,5 +1,5 @@
 import Viewport from "../vendor/three-viewport/src/viewport";
-import { is } from "../vendor/three-viewport/vendor/nice-things/utils";
+import { is } from "../vendor/nice-things/utils";
 
 
 const { PI, round } = Math;
