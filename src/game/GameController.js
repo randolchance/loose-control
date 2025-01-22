@@ -3,6 +3,7 @@ import {
   MovingPointSpaceTime,
   AcceleratingPointSpaceTime,
 } from "../../vendor/nice-things/math4d";
+import { is } from "../../vendor/nice-things/utils";
 
 
 class GameController {
@@ -23,6 +24,17 @@ class GameController {
 
   constructor( viewport, scenes={}, has_orientation_controls=false ) {
     if (GameController.instance) return GameController.instance;
+
+    const { primary, html, overlay } = scenes;
+    const has_requisite_scenes =  is.all( primary, html, overlay );
+    if (!has_requisite_scenes) {
+
+      const msg = `Missing required scenes!`;
+      console.error( msg, scenes );
+
+      throw new Error( msg );
+
+    }
 
     this._update = GameController.update.bind(this);
     viewport.addEventListener( 'update', this._update );
